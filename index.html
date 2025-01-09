@@ -10,6 +10,7 @@
 <body class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-white min-h-screen flex items-center justify-center">
   <div id="app" class="container mx-auto p-6 max-w-lg bg-white text-gray-800 rounded-lg shadow-lg">
     <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">🌤️ Weather Forecast App</h1>
+    <p class="text-gray-600 mt-2">Get accurate and up-to-date weather information</p>
     
     <!-- Search Section -->
     <div class="space-y-4">
@@ -36,7 +37,37 @@
     <!-- Recently Searched Section -->
     <div id="recent-cities" class="hidden mt-6">
  <h2 class="text-lg font-semibold mb-2">Recently Searched Cities</h2> <!--this will show the section where previous 5 cities will show  -->
-
-   
+ <select id="recent-dropdown" class="w-full border p-2 rounded-md">
+    <option value="">Select a city</option>
+  </select>
+</div>
+<!-- Weather Display Section -->
+<div id="weather-display" class="hidden mt-6 bg-gray-100 p-6 rounded-md shadow-md">
+    <h2 id="city-name" class="text-xl font-bold mb-4 text-center"></h2>
+    <div class="flex items-center justify-center mb-4">
+      <img id="weather-icon" src="" alt="Weather Icon" class="w-20 h-20">
+    </div>
+    <div class="text-center space-y-2">
+        <p id="temperature" class="text-lg font-semibold"></p>
+        <p id="conditions" class="text-gray-600"></p>
+        </div>
+        <div class="mt-4 text-sm text-gray-700 space-y-1">
+            <p>Humidity: <span id="humidity"></span>%</p>
+            <p>Wind Speed: <span id="wind-speed"></span> km/h</p>
+          </div>
+        </div><div class="mt-4 text-sm text-gray-700 space-y-1">
+        <p>Humidity: <span id="humidity"></span>%</p>
+        <p>Wind Speed: <span id="wind-speed"></span> km/h</p>
+      </div>
+    </div>
+     <!-- Extended Forecast Section -->
+     <div id="forecast-display" class="hidden mt-6">
+        <h2 class="text-lg font-semibold mb-4">5-Day Forecast</h2>
+        <div id="forecast-cards" class="grid grid-cols-2 gap-4"></div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+  </html>
 
    
