@@ -58,3 +58,27 @@ async function fetchWeatherByCity(city) {
       alert(error.message);
     }
   }
+  // Fetch Weather by Coordinates
+async function fetchWeatherByCoords(lat, lon) {
+    try {
+      const response = await fetch(`${API_URL}?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`);
+      if (!response.ok) throw new Error("Unable to fetch weather data");
+      const data = await response.json();
+      displayWeather(data);
+      fetchForecast(lat, lon);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+  // Fetch Extended Forecast
+async function fetchForecast(lat, lon) {
+    try {
+      const response = await fetch(`${FORECAST_URL}?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`);
+      if (!response.ok) throw new Error("Unable to fetch forecast data");
+      const data = await response.json();
+      displayForecast(data);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+  
