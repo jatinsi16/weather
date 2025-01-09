@@ -93,7 +93,8 @@ function displayWeather(data) {
     document.getElementById("weather-icon").src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   }
   // Display Extended Forecast
-function displayForecast(data) {
+  function displayForecast(data) {
+    const forecastDisplay = document.getElementById("forecast-display");
     forecastDisplay.classList.remove("hidden");
     const forecastCards = document.getElementById("forecast-cards");
     forecastCards.innerHTML = ""; // Clear previous cards
@@ -104,16 +105,17 @@ function displayForecast(data) {
     dailyData.forEach((day) => {
       const date = new Date(day.dt_txt).toLocaleDateString("en-GB", { weekday: "short", month: "short", day: "numeric" });
       forecastCards.innerHTML += `
-        <div class="bg-black-100 p-4 rounded-md shadow-md">
-          <p class="text-sm font-bold">${date}</p>
+        <div class="bg-white p-4 rounded-md shadow-md">
+          <p class="text-sm font-bold text-black">${date}</p>
           <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="Weather Icon" class="w-12 h-12 mx-auto">
-          <p class="text-sm text-black-600 mt-2">Temp: ${day.main.temp}°C</p>
-          <p class="text-sm text-gray-600 mt-2">Humidity: ${day.main.humidity}%</p>
-          <p class="text-gray-600 mt-2">Wind: ${day.wind.speed} km/h</p>
+          <p class="text-sm text-black mt-2">Temp: ${day.main.temp}°C</p>
+          <p class="text-sm text-black mt-2">Humidity: ${day.main.humidity}%</p>
+          <p class="text-sm text-black mt-2">Wind: ${day.wind.speed} km/h</p>
         </div>
       `;
     });
   }
+  
 // Add City to Recently Searched
 function addCityToRecent(city) {
   if (!recentCities.includes(city)) {
