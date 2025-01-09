@@ -4,68 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast Application</title>
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-white min-h-screen flex items-center justify-center">
+  <!-- Main container holding the app content -->
   <div id="app" class="container mx-auto p-6 max-w-lg bg-white text-gray-800 rounded-lg shadow-lg">
-    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">🌤️ Weather Forecast App</h1>
-    <p class="text-gray-600 mt-2">Get accurate and up-to-date weather information</p>
     
-    <!-- Search Section -->
-    <div class="space-y-4">
-        <input
-          id="city-input"
-          type="text"
-          placeholder="Enter city name"
-          class="border rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
-        <button
+    <!-- Title Section -->
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">🌤️ Weather Forecast App</h1>
+    <p class="text-gray-600 mt-2 text-center">Get accurate and up-to-date weather information</p>
+    
+    <!-- Search Section: Allows users to input city name -->
+    <div class="space-y-4 mt-6">
+      <input
+        id="city-input"
+        type="text"
+        placeholder="Enter city name"
+        class="border rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
+      <button
         id="search-btn"
         class="bg-indigo-500 text-white px-4 py-2 w-full rounded-md hover:bg-indigo-600"
       >
         Search by City
       </button>
+      <!-- Button to get weather for the current location -->
       <button
-      id="current-location-btn"
-      class="bg-blue-500 text-white px-4 py-2 w-full rounded-md hover:bg-blue-600"
-    >
-      Get Weather for Current Location
-    </button>
-  </div>
-  
-    <!-- Recently Searched Section -->
-    <div id="recent-cities" class="hidden mt-6">
- <h2 class="text-lg font-semibold mb-2">Recently Searched Cities</h2> <!--this will show the section where previous 5 cities will show  -->
- <select id="recent-dropdown" class="w-full border p-2 rounded-md">
-    <option value="">Select a city</option>
-  </select>
-</div>
-<!-- Weather Display Section -->
-<div id="weather-display" class="hidden mt-6 bg-gray-100 p-6 rounded-md shadow-md">
-    <h2 id="city-name" class="text-xl font-bold mb-4 text-center"></h2>
-    <div class="flex items-center justify-center mb-4">
-      <img id="weather-icon" src="" alt="Weather Icon" class="w-20 h-20">
+        id="current-location-btn"
+        class="bg-blue-500 text-white px-4 py-2 w-full rounded-md hover:bg-blue-600"
+      >
+        Get Weather for Current Location
+      </button>
     </div>
-    <div class="text-center space-y-2">
+  
+    <!-- Recently Searched Section: Displays recent cities (if any) -->
+    <div id="recent-cities" class="hidden mt-6">
+      <h2 class="text-lg font-semibold mb-2">Recently Searched Cities</h2>
+      <select id="recent-dropdown" class="w-full border p-2 rounded-md">
+        <option value="">Select a city</option>
+      </select>
+    </div>
+  
+    <!-- Weather Display Section: Shows current weather for the city -->
+    <div id="weather-display" class="hidden mt-6 bg-gray-100 p-6 rounded-md shadow-md">
+      <h2 id="city-name" class="text-xl font-bold mb-4 text-center"></h2>
+      <div class="flex items-center justify-center mb-4">
+        <!-- Dynamic weather icon -->
+        <img id="weather-icon" src="" alt="Weather Icon" class="w-20 h-20">
+      </div>
+      <div class="text-center space-y-2">
+        <!-- Temperature and weather condition text -->
         <p id="temperature" class="text-lg font-semibold"></p>
         <p id="conditions" class="text-gray-600"></p>
-        </div>
-        <div class="mt-4 text-sm text-gray-700 space-y-1">
-            <p>Humidity: <span id="humidity"></span>%</p>
-            <p>Wind Speed: <span id="wind-speed"></span> km/h</p>
-          </div>
-        </div>
+      </div>
+      <div class="mt-4 text-sm text-gray-700 space-y-1">
+        <!-- Additional weather details: Humidity and Wind Speed -->
+        <p>Humidity: <span id="humidity"></span>%</p>
+        <p>Wind Speed: <span id="wind-speed"></span> km/h</p>
+      </div>
     </div>
-    <!-- Extended Forecast Section -->
-<div id="forecast-display" class="mt-6 hidden">
-    <h2 class="text-lg font-semibold mb-4">5-Day Forecast</h2>
-    <div id="forecast-cards" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-      <!-- Forecast cards will be dynamically inserted here -->
+
+    <!-- Extended Forecast Section: Displays 5-day forecast -->
+    <div id="forecast-display" class="mt-6 hidden">
+      <h2 class="text-lg font-semibold mb-4">5-Day Forecast</h2>
+      <div id="forecast-cards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Forecast cards will be dynamically inserted here -->
+      </div>
     </div>
   </div>
-    <script src="app.js"></script>
-  </body>
-  </html>
-
-   
+  
+  <!-- Linking JavaScript file -->
+  <script src="app.js"></script>
+</body>
+</html>
