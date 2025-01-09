@@ -31,3 +31,12 @@ locationBtn.addEventListener("click", () => {
           const { latitude, longitude } = position.coords;
           fetchWeatherByCoords(latitude, longitude);
         },
+        (error) => {
+            alert("Unable to retrieve location. Please try again.");
+            console.error(error);
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    });
