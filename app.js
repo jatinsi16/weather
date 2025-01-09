@@ -40,3 +40,8 @@ locationBtn.addEventListener("click", () => {
         alert("Geolocation is not supported by your browser.");
       }
     });
+
+recentDropdown.addEventListener("change", (event) => {
+    const city = event.target.value;
+    if (city) fetchWeatherByCity(city);
+  });
