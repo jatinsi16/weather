@@ -107,9 +107,9 @@ function displayForecast(data) {
         <div class="bg-black-100 p-4 rounded-md shadow-md">
           <p class="text-sm font-bold">${date}</p>
           <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="Weather Icon" class="w-12 h-12 mx-auto">
-          <p class="text-sm">Temp: ${day.main.temp}°C</p>
-          <p class="text-sm">Humidity: ${day.main.humidity}%</p>
-          <p class="text-sm">Wind: ${day.wind.speed} km/h</p>
+          <p class="text-sm text-black-600 mt-2">Temp: ${day.main.temp}°C</p>
+          <p class="text-sm text-gray-600 mt-2">Humidity: ${day.main.humidity}%</p>
+          <p class="text-gray-600 mt-2">Wind: ${day.wind.speed} km/h</p>
         </div>
       `;
     });
