@@ -1,4 +1,4 @@
-### Weather Forecast Application
+# Weather Forecast Application
 
 ## Overview
 This is a weather forecast application built using HTML, CSS (with Tailwind CSS), and JavaScript. It provides real-time weather data and a 5-day weather forecast for any city worldwide. It uses the OpenWeatherMap API to fetch weather data and displays it in a user-friendly interface.
