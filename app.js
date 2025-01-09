@@ -106,18 +106,17 @@ function displayForecast(data) {
   // Filter forecast data to one entry per day
   const dailyData = data.list.filter((item) => item.dt_txt.includes("12:00:00")); // Filter for daily data
 
-  dailyData.forEach((day) => { 
-    // Loop through daily data
+  dailyData.forEach((day) => { // Loop through daily data
     const date = new Date(day.dt_txt).toLocaleDateString("en-GB", { weekday: "short", month: "short", day: "numeric" }); // Format date
-    forecastCards.innerHTML += ` 
+    forecastCards.innerHTML += `
       <div class="bg-white p-4 rounded-md shadow-md">
         <p class="text-sm font-bold text-black sm:text-base md:text-lg lg:text-xl">
-          ${date} 
+          ${date}
         </p>
         <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" 
           alt="Weather Icon" 
           class="w-12 h-12 mx-auto sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
-        >
+        > 
 
         <p class="text-sm text-black mt-2 sm:text-base md:text-lg lg:text-xl">
           Temp: ${day.main.temp}°C 
@@ -129,7 +128,6 @@ function displayForecast(data) {
 
         <p class="text-sm text-black mt-2 sm:text-base md:text-lg lg:text-xl">
           Wind: ${day.wind.speed} km/h 
-        </p>
       </div>
     `;
   });
