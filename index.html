@@ -60,12 +60,13 @@
         <p>Wind Speed: <span id="wind-speed"></span> km/h</p>
       </div>
     </div>
-     <!-- Extended Forecast Section -->
-     <div id="forecast-display" class="hidden mt-6">
-        <h2 class="text-lg font-semibold mb-4">5-Day Forecast</h2>
-        <div id="forecast-cards" class="grid grid-cols-2 gap-4"></div>
-      </div>
+    <!-- Extended Forecast Section -->
+<div id="forecast-display" class="mt-6 hidden">
+    <h2 class="text-lg font-semibold mb-4">5-Day Forecast</h2>
+    <div id="forecast-cards" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <!-- Forecast cards will be dynamically inserted here -->
     </div>
+  </div>
     <script src="app.js"></script>
   </body>
   </html>
