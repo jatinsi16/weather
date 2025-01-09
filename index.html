@@ -7,26 +7,33 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-blue-50 min-h-screen flex flex-col items-center justify-center">
-    <header class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-blue-700">Weather Forecast Application</h1>
-        <p class="text-gray-600 mt-2">Get accurate and up-to-date weather information</p>
-    </header>
+<body class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-white min-h-screen flex items-center justify-center">
+  <div id="app" class="container mx-auto p-6 max-w-lg bg-white text-gray-800 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">🌤️ Weather Forecast App</h1>
+    
     <!-- Search Section -->
-    <div class="mb-6">
-        <input 
-            type="text" 
-            id="citySearch" 
-            placeholder="Enter city name" 
-            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+    <div class="space-y-4">
+        <input
+          id="city-input"
+          type="text"
+          placeholder="Enter city name"
+          class="border rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
-        <button 
-            id="searchButton" 
-            class="mt-2 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200"
-        >
-            Search
-        </button>
-    </div>
+        <button
+        id="search-btn"
+        class="bg-indigo-500 text-white px-4 py-2 w-full rounded-md hover:bg-indigo-600"
+      >
+        Search by City
+      </button>
+      <button
+      id="current-location-btn"
+      class="bg-blue-500 text-white px-4 py-2 w-full rounded-md hover:bg-blue-600"
+    >
+      Get Weather for Current Location
+    </button>
+  </div>
+
+   
 
     <main class="w-full max-w-md">
         <div id="weatherInfo" class="hidden bg-white p-4 rounded-md shadow-md">
