@@ -114,3 +114,25 @@ function displayForecast(data) {
       `;
     });
   }
+// Add City to Recently Searched
+function addCityToRecent(city) {
+  if (!recentCities.includes(city)) {
+    recentCities.push(city);
+    if (recentCities.length > 5) recentCities.shift(); // Limit to 5 cities
+    localStorage.setItem("recentCities", JSON.stringify(recentCities));
+    updateRecentCities();
+  }
+}
+// Update Recently Searched Dropdown
+function updateRecentCities() {
+  if (recentCities.length > 0) {
+    recentCitiesContainer.classList.remove("hidden");
+    recentDropdown.innerHTML = `<option value="">Select a city</option>`;
+    recentCities.forEach((city) => {
+      recentDropdown.innerHTML += `<option value="${city}">${city}</option>`;
+    });
+  }
+}
+
+// Initialize Recently Searched Cities on Page Load
+updateRecentCities();
