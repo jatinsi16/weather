@@ -104,7 +104,7 @@ function displayForecast(data) {
     dailyData.forEach((day) => {
       const date = new Date(day.dt_txt).toLocaleDateString("en-GB", { weekday: "short", month: "short", day: "numeric" });
       forecastCards.innerHTML += `
-        <div class="bg-gray-100 p-4 rounded-md shadow-md">
+        <div class="bg-black-100 p-4 rounded-md shadow-md">
           <p class="text-sm font-bold">${date}</p>
           <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="Weather Icon" class="w-12 h-12 mx-auto">
           <p class="text-sm">Temp: ${day.main.temp}°C</p>
