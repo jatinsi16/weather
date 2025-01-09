@@ -82,3 +82,35 @@ async function fetchForecast(lat, lon) {
     }
   }
   
+  // Display Current Weather
+function displayWeather(data) {
+    weatherDisplay.classList.remove("hidden");
+    document.getElementById("city-name").textContent = data.name;
+    document.getElementById("temperature").textContent = `Temperature: ${data.main.temp}°C`;
+    document.getElementById("conditions").textContent = data.weather[0].description;
+    document.getElementById("humidity").textContent = data.main.humidity;
+    document.getElementById("wind-speed").textContent = data.wind.speed;
+    document.getElementById("weather-icon").src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  }
+  // Display Extended Forecast
+function displayForecast(data) {
+    forecastDisplay.classList.remove("hidden");
+    const forecastCards = document.getElementById("forecast-cards");
+    forecastCards.innerHTML = ""; // Clear previous cards
+  
+    // Filter forecast data to one entry per day
+    const dailyData = data.list.filter((item) => item.dt_txt.includes("12:00:00"));
+  
+    dailyData.forEach((day) => {
+      const date = new Date(day.dt_txt).toLocaleDateString("en-GB", { weekday: "short", month: "short", day: "numeric" });
+      forecastCards.innerHTML += `
+        <div class="bg-gray-100 p-4 rounded-md shadow-md">
+          <p class="text-sm font-bold">${date}</p>
+          <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="Weather Icon" class="w-12 h-12 mx-auto">
+          <p class="text-sm">Temp: ${day.main.temp}°C</p>
+          <p class="text-sm">Humidity: ${day.main.humidity}%</p>
+          <p class="text-sm">Wind: ${day.wind.speed} km/h</p>
+        </div>
+      `;
+    });
+  }
