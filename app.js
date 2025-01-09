@@ -106,7 +106,8 @@ function displayForecast(data) {
   // Filter forecast data to one entry per day
   const dailyData = data.list.filter((item) => item.dt_txt.includes("12:00:00")); // Filter for daily data
 
-  dailyData.forEach((day) => { // Loop through daily data
+  dailyData.forEach((day) => { 
+    // Loop through daily data
     const date = new Date(day.dt_txt).toLocaleDateString("en-GB", { weekday: "short", month: "short", day: "numeric" }); // Format date
     forecastCards.innerHTML += ` 
       <div class="bg-white p-4 rounded-md shadow-md">
