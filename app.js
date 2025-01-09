@@ -1,3 +1,4 @@
+
 const API_KEY ="922e54470aba716cce3c3570e4d1ff0e";
 const API_URL = "https://api.openweathermap.org/data/2.5/weather";
 const FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast";
@@ -42,6 +43,18 @@ locationBtn.addEventListener("click", () => {
     });
 
 recentDropdown.addEventListener("change", (event) => {
-    const city = event.target.value;
+    const city = event.target.value; 
     if (city) fetchWeatherByCity(city);
   });
+  // Fetch Weather by City Name
+async function fetchWeatherByCity(city) {
+    try {
+      const response = await fetch(`${API_URL}?q=${city}&units=metric&appid=${API_KEY}`);
+      if (!response.ok) throw new Error("City not found");
+      const data = await response.json();
+      displayWeather(data);
+      fetchForecast(data.coord.lat, data.coord.lon);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
